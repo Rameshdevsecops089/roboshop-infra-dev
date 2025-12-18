@@ -41,3 +41,13 @@ resource "aws_security_group_rule" "bastion_laptop" {
   security_group_id = module.mongodb.sg_id
 }
 
+# backend ALB accepting connections from my bastion host on port no 80
+resource "aws_security_group_rule" "backend " {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = module.bastion.sg_id
+  security_group_id = module.mongodb.sg_id
+}
+
