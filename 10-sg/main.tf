@@ -42,7 +42,7 @@ resource "aws_security_group_rule" "bastion_laptop" {
 }
 
 # backend ALB accepting connections from my bastion host on port no 80
-resource "aws_security_group_rule" "backend " {
+resource "aws_security_group_rule" "backend" {
   type              = "ingress"
   from_port         = 22
   to_port           = 22
