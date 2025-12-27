@@ -1,47 +1,3 @@
-module "frontend" {
-    #source = "../../terraform-aws-securitygroup"
-    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
-    project = var.project
-    environment = var.environment
-
-    sg_name = var.frontend_sg_name
-    sg_description = var.frontend_sg_description
-    vpc_id = local.vpc_id
-}
-
-module "frontend_alb" {
-    #source = "../../terraform-aws-securitygroup"
-    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
-    project = var.project
-    environment = var.environment
-
-    sg_name = "frontend-alb"
-    sg_description = "for frontend alb"
-    vpc_id = local.vpc_id
-}
-
-module "bastion" {
-    #source = "../../terraform-aws-securitygroup"
-    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
-    project = var.project
-    environment = var.environment
-
-    sg_name = var.bastion_sg_name
-    sg_description = var.bastion_sg_description
-    vpc_id = local.vpc_id
-}
-
-module "vpn" {
-    #source = "../../terraform-aws-securitygroup"
-    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
-    project = var.project
-    environment = var.environment
-
-    sg_name = "vpn"
-    sg_description = "for vpn"
-    vpc_id = local.vpc_id
-}
-
 module "mongodb" {
     #source = "../../terraform-aws-securitygroup"
     source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
@@ -149,6 +105,50 @@ module "backend_alb" {
 
     sg_name = "backend-alb"
     sg_description = "for backend alb"
+    vpc_id = local.vpc_id
+}
+
+module "frontend" {
+    #source = "../../terraform-aws-securitygroup"
+    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
+    project = var.project
+    environment = var.environment
+
+    sg_name = var.frontend_sg_name
+    sg_description = var.frontend_sg_description
+    vpc_id = local.vpc_id
+}
+
+module "frontend_alb" {
+    #source = "../../terraform-aws-securitygroup"
+    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
+    project = var.project
+    environment = var.environment
+
+    sg_name = "frontend-alb"
+    sg_description = "for frontend alb"
+    vpc_id = local.vpc_id
+}
+
+module "bastion" {
+    #source = "../../terraform-aws-securitygroup"
+    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
+    project = var.project
+    environment = var.environment
+
+    sg_name = var.bastion_sg_name
+    sg_description = var.bastion_sg_description
+    vpc_id = local.vpc_id
+}
+
+module "vpn" {
+    #source = "../../terraform-aws-securitygroup"
+    source = "git::https://github.com/Rameshdevsecops089/terraform-aws-securitygroup.git?ref=main"
+    project = var.project
+    environment = var.environment
+
+    sg_name = "vpn"
+    sg_description = "for vpn"
     vpc_id = local.vpc_id
 }
 
